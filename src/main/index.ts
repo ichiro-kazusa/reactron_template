@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -29,6 +29,13 @@ function createWindow() {
       nodeIntegration: true
     }
   })
+
+  /**
+   * remove menu bar on all platforms
+   */
+  const emptyMenu = Menu.buildFromTemplate([]) // empty menu
+  Menu.setApplicationMenu(emptyMenu)
+  mainWindow.removeMenu()
 
   mainWindow.loadURL(winURL)
 
