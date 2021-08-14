@@ -15,6 +15,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import { mainListItems, secondaryListItems } from './listItems'
 import DashboardContent from './DashboardContent'
+import OrderContent from './OrderContent'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
 
 
 const drawerWidth = 240
@@ -96,6 +98,8 @@ export default function Dashboard() {
     setOpen(!false && !foldable)
   }
 
+  let { path, url } = useRouteMatch()
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -139,7 +143,14 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <DashboardContent />
+        <Switch>
+          <Route exact path="/">
+            <DashboardContent />
+          </Route>
+          <Route path="/order">
+            <OrderContent />
+          </Route>
+        </Switch>
       </main>
     </div>
   )

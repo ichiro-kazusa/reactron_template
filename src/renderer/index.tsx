@@ -1,8 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 import './index.css'
-// import App from './App'
 import Dashboard from './dashboard/Dashboard'
+import DashboardContent from './dashboard/DashboardContent'
+import OrderContent from './dashboard/OrderContent'
 
-// ReactDOM.render(<App />, document.getElementById('root'))
-ReactDOM.render(<Dashboard />, document.getElementById('root'))
+
+ReactDOM.render(
+    <Router>
+        <Route path="/" component={Dashboard}/>
+    </Router>,
+    document.getElementById('root')
+)
