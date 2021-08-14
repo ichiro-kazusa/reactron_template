@@ -9,7 +9,8 @@ import OrderContent from './dashboard/OrderContent'
 
 ReactDOM.render(
     <Router>
-        <Route path="/" component={Dashboard}/>
+        <Route exact path="/" render={() => { return (<Dashboard title="Dashboard"><DashboardContent /></Dashboard>) }} />
+        <Route path="/order" render={() => { return (<Dashboard title="Orders"><OrderContent /></Dashboard>) }} />
     </Router>,
     document.getElementById('root')
 )

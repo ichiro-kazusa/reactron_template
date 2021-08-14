@@ -14,10 +14,6 @@ import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import { mainListItems, secondaryListItems } from './listItems'
-import DashboardContent from './DashboardContent'
-import OrderContent from './OrderContent'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
-
 
 const drawerWidth = 240
 
@@ -87,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const foldable = false // ドロワー折り畳み可能。falseなら開きっぱなし
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
@@ -97,8 +93,6 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(!false && !foldable)
   }
-
-  let { path, url } = useRouteMatch()
 
   return (
     <div className={classes.root}>
@@ -115,7 +109,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            {props.title}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -143,14 +137,7 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Switch>
-          <Route exact path="/">
-            <DashboardContent />
-          </Route>
-          <Route path="/order">
-            <OrderContent />
-          </Route>
-        </Switch>
+        {props.children}
       </main>
     </div>
   )
