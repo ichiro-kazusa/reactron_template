@@ -118,13 +118,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Dashboard() {
+  const foldable = false // メニュー折り畳み可能。falseなら開きっぱなし
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
   const handleDrawerOpen = () => {
     setOpen(true)
   }
   const handleDrawerClose = () => {
-    setOpen(false)
+    setOpen(!false && !foldable)
   }
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
@@ -159,10 +160,10 @@ export default function Dashboard() {
         }}
         open={open}
       >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
+        <div className={clsx(classes.toolbarIcon, !foldable && classes.toolbar)}>
+          {foldable && <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
-          </IconButton>
+          </IconButton>}
         </div>
         <Divider />
         <List>{mainListItems}</List>
