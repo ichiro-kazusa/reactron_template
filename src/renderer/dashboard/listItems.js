@@ -18,14 +18,14 @@ const useStyles = makeStyles((theme) => ({
   },
   navlink: {
     color: 'black',
-    textDecoration: 'none', // remove underline
+    textDecoration: 'none', // remove link underline
   },
   navlinkactive: {
     color: 'rgb(63, 81, 181)',
     backgroundColor: 'rgba(63, 81, 181, 0.08)',
+    borderRightStyle: 'solid',
     borderRightWidth: 4,
     borderRightColor: 'rgb(63, 81, 181)',
-    borderRightStyle: 'solid'
   },
 }));
 
