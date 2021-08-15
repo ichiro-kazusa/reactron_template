@@ -12,6 +12,23 @@ import AssignmentIcon from '@material-ui/icons/Assignment'
 import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 
+
+export const navListName = { // name label for navigation drawer
+  dashboard: {
+    name: 'Dashboard'
+  },
+  route: {
+    name: 'Router'
+  },
+  counter: {
+    name: 'Redux'
+  },
+  async: {
+    name: 'Async'
+  }
+}
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -39,25 +56,25 @@ export function MainListItems() {
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
-        <ListItemText primary="Dashboard" />
+        <ListItemText primary={navListName.dashboard.name} />
       </ListItem>
-      <ListItem button component={NavLink} to="/order" activeClassName={classes.navlinkactive} className={classes.navlink} >
+      <ListItem button component={NavLink} to="/router" activeClassName={classes.navlinkactive} className={classes.navlink} >
         <ListItemIcon>
           <ShoppingCartIcon />
         </ListItemIcon>
-        <ListItemText primary="Orders" />
+        <ListItemText primary={navListName.route.name} />
       </ListItem>
-      <ListItem button component={NavLink} to="/customer" activeClassName={classes.navlinkactive} className={classes.navlink} >
+      <ListItem button component={NavLink} to="/redux" activeClassName={classes.navlinkactive} className={classes.navlink} >
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
-        <ListItemText primary="Customers" />
+        <ListItemText primary={navListName.counter.name} />
       </ListItem>
-      <ListItem button>
+      <ListItem button component={NavLink} to="/async" activeClassName={classes.navlinkactive} className={classes.navlink} >
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <ListItemText primary="Reports" />
+        <ListItemText primary={navListName.async.name} />
       </ListItem>
       <ListItem button>
         <ListItemIcon>
