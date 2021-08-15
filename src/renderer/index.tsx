@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import './index.css'
-import Dashboard from './dashboard/Dashboard'
-import DashboardContent from './dashboard/DashboardContent'
-import OrderContent from './dashboard/OrderContent'
-import CustomerContent from './dashboard/CustomerContent'
-import * as reducers from './reducers'
+import Dashboard from './components/Dashboard'
+import DashboardContent from './components/DashboardContent'
+import OrderContent from './components/OrderContent'
+import CustomerContent from './store/containers/CustomerContent'
+import * as reducers from './store/reducers'
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import logger from 'redux-logger'
 import { Provider } from 'react-redux'
@@ -24,7 +24,7 @@ function renderApp() {
             <Router>
                 <Route exact path="/" render={() => { return (<Dashboard title="Dashboard"><DashboardContent /></Dashboard>) }} />
                 <Route path="/order" render={() => { return (<Dashboard title="Orders" ><OrderContent /></Dashboard>) }} />
-                <Route path="/customer" render={() => { return (<Dashboard title="Customers" ><CustomerContent store={store} /></Dashboard>) }} />
+                <Route path="/customer" render={() => { return (<Dashboard title="Customers" ><CustomerContent/></Dashboard>) }} />
             </Router>
         </Provider>,
         document.getElementById('root')
