@@ -47,7 +47,7 @@ export function MainListItems() {
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItem>
-      <ListItem button>
+      <ListItem button component={NavLink} to="/customer" activeClassName={classes.navlinkactive} className={classes.navlink} >
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
