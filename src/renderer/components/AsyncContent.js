@@ -27,7 +27,7 @@ export default function AsyncContent({ error, omikuji, fetchOmikuji }) {
                 </React.Fragment>
                 :
                 (omikuji === undefined && !error) ?
-                    <React.Fragment> <Typography variant='h4'>引いているよ</Typography>
+                    <React.Fragment> <Typography variant='h4'>通信中...</Typography>
                         <ButtonGroup color="primary" aria-label="outlined primary button group" disabled={true}>
                             <Button onClick={() => fetchOmikuji()} >引く！</Button>
                         </ButtonGroup>
