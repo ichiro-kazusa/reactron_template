@@ -13,6 +13,7 @@ import logger from 'redux-logger'
 import { Provider } from 'react-redux'
 import { navListName } from './components/listItems'
 import thunk from 'redux-thunk'
+import "regenerator-runtime/runtime"
 
 const store = createStore(
     combineReducers(reducers),

@@ -128,6 +128,7 @@
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react-hot-loader": "^4.12.19",
+    "regenerator-runtime": "^0.13.9",
     "sass-loader": "^8.0.2",
     "spectron": "^10.0.0",
     "style-loader": "^1.1.3",
