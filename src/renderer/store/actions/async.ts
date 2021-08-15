@@ -22,10 +22,10 @@ async function omikuji(response: any) {
     await new Promise(resolve => setTimeout(resolve, waitforms)) // sleep
     switch (response) {
         case 0: return '大凶'
-        case 1: return '中凶'
+        case 1: return '凶'
         case 2: return '小凶'
         case 3: return '小吉'
-        case 4: return '中吉'
+        case 4: return '吉'
         case 5: return '大吉'
         default: throw Error
     }
